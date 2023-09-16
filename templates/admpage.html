@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="fazer-pedido">
+        <div>
+            <h3>Dados do pedido</h3>
+        </div>
+
+        <div class="informacoes">
+
+            <div class="nome">
+
+                <input id="nome" type="text" placeholder="Nome">
+
+            </div>
+
+            <div class="sabor">
+
+                <input id="quantidade" type="number" placeholder="Quantidade">
+
+                <select id="produto" name="select">
+                    <option value="QUEIJO">QUEIJO</option>
+                    <option value="CARNE">CARNE</option>
+                    <option value="AÇAI">AÇAI</option>
+                    <option value="valor" selected>------</option>
+                </select>
+
+                <button onclick="finalizar()" class="btn">Adicionar</button>
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container-pedido">
+        <div>
+            <h3>Pedido</h3>
+        </div>
+        <div class="itens-pedido">
+            <div class="nome-pedido">
+                <h2 id="comprador"></h2>
+            </div>
+            <div class="itens">
+                <h2 id="numero"></h2>
+                <h2 id="sabores"></h2>
+            </div>
+        </div>
+        <div class="botao">
+            <button onclick="" class="btn">Finalizar pedido</button>
+        </div>
+
+    </div>
+
+{% endblock content %}
