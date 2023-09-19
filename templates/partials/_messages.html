@@ -1,0 +1,20 @@
+{% load static %}
+{% if messages %}
+
+    <script>
+        $(document).ready(function () {
+            {% for message in messages %}
+                <!-- Recebe como parametro a mensagem e verifica se deu errado, mostrando o erro para o usuario-->
+                {% if message.tags == 'danger' %}
+                    alertDanger('{{ message }}');
+                {% elif message.tags == 'success' %}
+                    alertSuccess('{{ message }}');
+                {% elif message.tags == 'warning' %}
+                    alertWarning('{{ message }}');
+                {% elif message.tags == 'info' %}
+                    alertInfo('{{ message }}');
+                {% endif %}
+            {% endfor %}
+        })
+    </script>
+{% endif %}

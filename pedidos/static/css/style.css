@@ -1,21 +1,16 @@
 body{
     width: 100vw;
     height: 100vh;
-
     margin: 0;
-
     background-color: rgb(41, 35, 35);
     color: aliceblue;
 }
 
 header{
     display: flex;
-
     justify-content: center;
     align-items: center;
-
     background-color: black;
-
     width: 100%;
     height: 10vh;
 }
@@ -28,131 +23,89 @@ header img{
     width: 100vw;
     height: 80vh;
     overflow: auto;
-
     background-color: rgb(41, 35, 35);
-
     display: flex;
-
     justify-content: center;
     align-items: center;
-
     gap: 15px;
-
 }
 
 .fazer-pedido{
-
     width: 45%;
     height: 80%;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
     background-color: rgba(0, 0, 0, 0.678);
-
     border-radius: 10px;
-
 }
 
 div h3{
-
     width: 100%;
     height: 20%;
-
     font-size: xx-large;
 }
 
 .informacoes{
-
     width: 100%;
     height: 80%;
-
     display: flex;
     flex-direction: column;
-
     justify-content: center;
     align-items: center;
-
 }
 
 .nome{
     width: 90%;
-    
     display: flex;
     flex-direction: column;
-
     justify-content: center;
     align-items: center;
-
     margin-bottom: 40px;
-
     margin-top: -80px;
-
-
 }
 
 .sabor{
-
     width: 90%;
-    
     display: flex;
-
     justify-content: center;
     align-items: center;
-
 }
 
 .nome input{
-
     width: 80%;
     height: 40px;
     border-radius: 5px;
     border: none;
-
     text-align: center;
-
-    text-align: center;
-
     font-size: large;
-
 }
 
 .sabor input{
     width: 20%;
     height: 40px;
-
     border-radius: 5px 0 0 5px ;
     border: none;
-
     text-align: center;
-
     font-size: large;
 }
 
 .sabor select{
     width: 20%;
     height: 42px;
-
     border-radius:0 5px 5px 0;
     border: none;
-
     text-align: center;
-
     font-size: large;
 }
 
 .btn{
     width: 30%;
     height: 43px;
-
     background-color: rgb(24, 134, 14);
-
     border-radius: 5px;
-
     margin-left: 10px;
-
     cursor: pointer;
 }
 
@@ -161,19 +114,14 @@ div h3{
 }
 
 .container-pedido{
-
     width: 45%;
     height: 80%;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
     background-color: rgba(0, 0, 0, 0.678);
-
     border-radius: 10px;
-
 }
 
 .itens-pedido{
@@ -183,8 +131,7 @@ div h3{
 
 .botao{
     width: 100%;
-    height: 20%; 
-
+    height: 20%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -223,12 +170,9 @@ div h3{
 
 footer{
     display: flex;
-
     justify-content: center;
     align-items: center;
-
     background-color: black;
-
     width: 100%;
     height: 10vh;
 }
@@ -238,9 +182,7 @@ footer{
 .comandas{
     width: 100vw;
     height: 80vh;
-
     display: flex;
-
     justify-content: center;
     align-items: center;
 }
@@ -248,17 +190,11 @@ footer{
 .secao-comandas{
     display: flex;
     flex-direction: column;
-
-    
     align-items: center;
-
     width: 90%;
     height: 90%;
-
     border-radius: 10px;
-
     padding: 5px;
-
     background-color: black;
 }
 
@@ -267,30 +203,20 @@ footer{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
     border-radius: 10px;
-   
     color: aliceblue;
-
     width: 90%;
     height: 100px;
-
     background-color: rgb(29, 27, 27);
 }
 
-
-
 .nome-pedido-comandas{
-
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-
     height: 50%;
-
     margin-bottom: -15px;
-
 }
 
 .itens-comandas{
@@ -300,7 +226,6 @@ footer{
     justify-content: center;
     align-items: center;
     gap: 5px;
-
     margin-top: -10px;
 }
 

@@ -6,22 +6,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pedidos JA - {% block title %}Home{% endblock title %}</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <!-- Specific Page CSS goes HERE  -->
+    {% block stylesheets %}{% endblock stylesheets %}
 </head>
 <body>
-<div>
-    {% include 'partials/header.html' %}
+    {% if user.is_authenticated %}
+        <div>
+            {% include 'partials/header.html' %}
 
-    <div class="container">
+            <div class="container">
 
-        {% block content %}
+                {% block content %}
 
-        {% endblock content %}
-    </div>
+                {% endblock content %}
+            </div>
 
-    {% include 'partials/footer.html' %}
-</div>
+            {% include 'partials/footer.html' %}
+        </div>
+    {% else %}
+        {% block login %}
 
-<!-- Scripts Files -->
+        {% endblock %}
+    {% endif %}
+
+    <!-- Scripts Files -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="{% static 'js/script.js' %}"></script>
+
+    {% include 'partials/_messages.html' %}
+    {% include 'partials/messages_js.html' %}
 </body>
 </html>

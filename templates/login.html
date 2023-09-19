@@ -1,28 +1,20 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login pedidos</title>
-    <link rel="stylesheet" href="../pedidos/static/css/stylelogin.css">
-</head>
-<body>
+{% extends 'base.html' %}
+{% load static %}
 
-    <div class="container">
+{% block title %}Login{% endblock title %}
 
-        <div class="login">
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}
+    <link href="{% static 'css/stylelogin.css' %}" rel="stylesheet">
+{% endblock stylesheets %}
 
-            <img src="logo_JA-Oficial.png" alt="">
+{% block login %}
+        <form method="post" action="{% url 'login_user' %}" class="login">
+            {% csrf_token %}
+            <img src="{% static 'img/logoja.jpeg' %}" alt="logo JA">
+            <input type="email", name="email">
+            <input type="password", name="password">
+            <button class="entrar">Entrar</button>
+        </form>
 
-            <input type="email">
-
-            <input type="password">
-
-            <button class="entrar">Entar</button>
-
-        </div>
-
-    </div>
-    
-</body>
-</html>
+{% endblock %}

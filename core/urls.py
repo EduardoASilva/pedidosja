@@ -19,5 +19,8 @@ from pedidos import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.login, name='login')
+    path('', views.index, name='index'),
+    path('login/', views.login, name='login'),
+    path('login_user/', views.login_user, name='login_user'),
+    path('logout/', views.logout, name='logout'),
 ]
