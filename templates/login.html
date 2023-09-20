@@ -11,9 +11,9 @@
 {% block login %}
         <form method="post" action="{% url 'login_user' %}" class="login">
             {% csrf_token %}
-            <img src="{% static 'img/logoja.jpeg' %}" alt="logo JA">
-            <input type="email", name="email">
-            <input type="password", name="password">
+            <img src="{% static 'img/logo_JA-Oficial.png' %}" alt="logo JA">
+            <input type="email", name="email" placeholder="E-mail">
+            <input type="password", name="password" placeholder="Senha">
             <button class="entrar">Entrar</button>
         </form>
 
