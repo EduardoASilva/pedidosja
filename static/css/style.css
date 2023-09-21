@@ -71,7 +71,8 @@ div h3{
     display: flex;
     justify-content:center;
     align-items:center;
-    padding:10px;
+
+   padding:10px;
 }
 
 .nome input{
@@ -91,7 +92,7 @@ div h3{
     font-size: large;
 }
 
-.produtos{
+#produto{
     width: 30%;
     height: 42px;
     border: none;
@@ -99,7 +100,32 @@ div h3{
     font-size: large;
     margin-right:10px;
     border-radius:5px;
-    overflow: hidden;
+
+     overflow: hidden;
+}
+
+#carne{
+    width: 30%;
+    height: 42px;
+    border: none;
+    text-align: center;
+    font-size: large;
+    margin-right:10px;
+    border-radius:5px;
+
+     overflow: hidden;
+}
+
+#acai{
+    width: 30%;
+    height: 42px;
+    border: none;
+    text-align: center;
+    font-size: large;
+    margin-right:10px;
+    border-radius:5px;
+
+     overflow: hidden;
 }
 
 .subtrair{
@@ -109,21 +135,11 @@ div h3{
     border-radius:5px 0 0 5px;
 }
 
-.subtrair:hover{
-    background-color: #CCC;
-    cursor: pointer;
-}
-
 .adicionar{
     width: 30px;
     height: 42px;
     border: none;
     border-radius:0 5px 5px 0;
-}
-
-.adicionar:hover{
-    background-color: #CCC;
-    cursor: pointer;
 }
 
 
@@ -134,6 +150,7 @@ div h3{
     border-radius: 5px;
     margin-left: 10px;
     cursor: pointer;
+
     margin-top:5px;
 }
 

@@ -47,3 +47,8 @@ def login_user(request):
 def logout(request):
     auth.logout(request)
     return redirect('login')
+
+
+def enviar_pedido(request):
+    print(request)
+    pass
