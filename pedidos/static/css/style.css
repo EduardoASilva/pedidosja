@@ -199,7 +199,7 @@ div h3{
     margin-top:10px;
 }
 
-.formulario-pedido{
+.form-pedido{
     display:flex;
 
 }
@@ -242,6 +242,7 @@ footer{
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align:center;
 }
 
 .secao-comandas{
