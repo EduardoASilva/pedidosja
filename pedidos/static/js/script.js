@@ -51,3 +51,12 @@ function process_geral(quantcarne){
         document.querySelector("input.quanticarne").value = classValue;
     }
 }
+
+function somar(opcao){
+
+}
+
+function subtrair(opcao) {
+    let valueInput = document.getElementById(`{opcao}`)
+
+}

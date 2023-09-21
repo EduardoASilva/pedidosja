@@ -8,47 +8,33 @@
         </div>
 
         <div class="informacoes">
-
             <div class="nome">
-
                 <input id="nome" type="text" placeholder="Nome">
-
             </div>
 
             <div class="sabor">
-
-                 <input id="produto" value="QUEIJO" placeholder="QUEIJO"/>
-
-                <button onclick="" class="subtrair">-</button>
-                <input id="quantidade" type="number" placeholder="0">
-                <button onclick="" class="adicionar">+</button>
-
+                <input name="queijo" value="queijo" placeholder="QUEIJO"/>
+                <button onclick="subtrair('queijo')" class="subtrair">-</button>
+                <input id="queijo" name="queijo" type="text" placeholder="0" value="0" disabled>
+                <button onclick="somar('queijo')" class="adicionar">+</button>
             </div>
 
-             <div class="sabor">
-
-                 <input id="carne" value="CARNE" placeholder="CARNE"/>
-
-                <button onclick="" class="subtrair">-</button>
-                <input id="quantidadecarne" type="number" placeholder="0">
-                <button onclick="" class="adicionar">+</button>
-
+            <div class="sabor">
+                <input id="subCarne" value="carne" placeholder="CARNE"/>
+                <button onclick="subtrair('carne')" class="subtrair">-</button>
+                <input id="carne" type="number" placeholder="0" value="0">
+                <button id="somCarne" onclick="somar('carne')" class="adicionar">+</button>
             </div>
 
-             <div class="sabor">
-
-                 <input id="acai" value="AÇAI" placeholder="AÇAI"/>
-
-                <button onclick="" class="subtrair">-</button>
-                <input id="quantidadeacai" type="number" placeholder="0">
-                <button onclick="" class="adicionar">+</button>
-
+            <div class="sabor">
+                <input id="acai" value="acai" placeholder="AÇAI"/>
+                <button onclick="subtrair('acai')" class="subtrair">-</button>
+                <input id="quantidadeacai" type="number" placeholder="0" value="0">
+                <button onclick="somar('acai')" class="adicionar">+</button>
             </div>
 
             <button onclick="finalizar()" class="btn">Adicionar</button>
-
         </div>
-
     </div>
 
     <div class="container-pedido">
@@ -79,7 +65,6 @@
         <div class="botao">
             <button onclick="" class="btn">Finalizar pedido</button>
         </div>
-
     </div>
 
 {% endblock content %}
