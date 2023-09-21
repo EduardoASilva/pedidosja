@@ -1,9 +1,10 @@
 function adicionar(){
     const info = document.querySelectorAll('.informacoes')[0].children
+    $('#addItem').empty();
 
     for (item of info) {
         if (item.className === 'nome'){
-            document.getElementById('nomeCliente').innerText = item.children[0].value
+            document.getElementById('nomeCliente').value = item.children[0].value
         }
         if (item.className === 'sabor'){
             if (item.children[2].value !== '0'){

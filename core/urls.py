@@ -23,5 +23,6 @@ urlpatterns = [
     path('login/', views.login, name='login'),
     path('login_user/', views.login_user, name='login_user'),
     path('logout/', views.logout, name='logout'),
-    path('enviar_pedidos/', views.enviar_pedido, name='enviar_pedido')
+    path('enviar_pedidos/', views.enviar_pedido, name='enviar_pedido'),
+    path('comandas/', views.comandas, name='comandas'),
 ]

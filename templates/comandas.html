@@ -1,38 +1,17 @@
-<!DOCTYPE html>
-<html lang="PT-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comandas</title>
-    <link rel="stylesheet" href="../pedidos/static/css/style.css">
-</head>
-<body>
+{% extends 'base.html' %}
 
-    <header>
-        <img src="logo_JA-Oficial.png" alt="Logo dos jovens iasd">
-    </header> 
+{% block content %}
 
     <div class="comandas">
-
         <div class="secao-comandas">
-
-            <div class="pedidos">   
-
-                <div class="nome-pedido-comandas">
-                    <input class="comprador-comandas" type="text" placeholder="NOME COMPRADOR">
-                </div>
-
-                <div class="itens-comandas">
-                    <input class="quantidade" type="text" placeholder="QUANT">
-                    <input class="sabores" type="text" placeholder="SABOR">
-                </div> 
-
+            <div class="pedidos">
+                <h3>{{ data.nome }}</h3>
+                <p>{{ data.data }}</p>
+                <ul>
+                    <li>{{ data.nome_produto }} - {{ data.qtd }}</li>
+                </ul>
             </div>
-
         </div>
     </div>
 
-    <footer><H3>Copyright</H3></footer>
-    
-</body>
-</html>
+{% endblock %}

@@ -4,10 +4,13 @@ from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 
+from pedidos.models import Pedidos, Esfirras, Quantidade
+
 
 @login_required(login_url='login')
 def index(request):
-    return render(request, 'admpage.html')
+    esfirras = Esfirras.objects.filter(ativo=True)
+    return render(request, 'admpage.html', {'esfirras': esfirras})
 
 
 # Create your views here.
@@ -50,5 +53,42 @@ def logout(request):
 
 
 def enviar_pedido(request):
-    print(request)
+    if request.method == 'POST':
+        try:
+            pedido = Pedidos.objects.create(
+                nome_cliente=request.POST.get('nome'),
+                id_user_id=request.user.id
+            )
+        except Exception as e:
+            messages.error(request, f'Erro: {e.args}')
+            return render(request, 'admpage.html')
+
+        data = {}
+        for key, value in request.POST.items():
+            if key != 'csrfmiddlewaretoken' and key != 'nome':
+                id_esfirra = Esfirras.objects.filter(nome__contains=key.lower()).last().id
+                data['id_pedido_id'] = pedido.id
+                data['id_esfirra_id'] = id_esfirra
+                data['qtd'] = value
+
+                Quantidade.objects.create(**data)
+
+        messages.success(request, 'Pedido criado com sucesso!')
+        esfirras = Esfirras.objects.filter(ativo=True)
+        return redirect('index')
+
+
+def comandas(request):
+    # pedidos = Pedidos.objects.filter(finalizado=False)
+    # data = {}
+    # for p in pedidos:
+    #     itens = {}
+    #     itens['nome'] = p.nome_cliente
+    #     itens['data'] = p.created_at
+    #     itens['produtos'] = {}
+    #     prod = Quantidade.objects.filter(id_pedido_id=p.id)
+    #     for pr in prod:
+    #         itens['']
+    # data['nome'] = pedido.nome
+    # return render(request, 'comandas.html')
     pass
