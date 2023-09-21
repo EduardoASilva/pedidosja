@@ -3,8 +3,7 @@ function adicionar(){
 
     for (item of info) {
         if (item.className === 'nome'){
-            let nome = item.children[0].value
-            document.getElementById('nomeCliente').innerText = nome
+            document.getElementById('nomeCliente').innerText = item.children[0].value
         }
         if (item.className === 'sabor'){
             if (item.children[2].value !== '0'){
@@ -18,7 +17,6 @@ function adicionar(){
                 elementHtml.innerHTML += html
             }
         }
-
     }
 }
 
