@@ -13,23 +13,23 @@
             </div>
 
             <div class="sabor">
-                <input name="queijo" class="produtos" value="queijo" placeholder="QUEIJO"/>
+                <input name="queijo" class="produto" value="queijo" placeholder="QUEIJO"/>
                 <button onclick="subtrair('queijo')" class="subtrair">-</button>
-                <input id="queijo" name="queijo" type="text" placeholder="0" value="0">
+                <input id="queijo" class="contador" name="queijo" type="text" placeholder="0" value="0">
                 <button onclick="somar('queijo')" class="adicionar">+</button>
             </div>
 
             <div class="sabor">
-                <input name="carne" class="produtos" value="carne" placeholder="CARNE"/>
+                <input name="carne" class="produto" value="carne" placeholder="CARNE"/>
                 <button onclick="subtrair('carne')" class="subtrair">-</button>
-                <input id="carne" type="number" placeholder="0" value="0">
+                <input id="carne" class="contador" type="number" placeholder="0" value="0">
                 <button id="somCarne" onclick="somar('carne')" class="adicionar">+</button>
             </div>
 
             <div class="sabor">
-                <input name="acai" class="produtos" value="acai" placeholder="AÇAI"/>
+                <input name="acai" class="produto" value="acai" placeholder="AÇAI"/>
                 <button onclick="subtrair('acai')" class="subtrair">-</button>
-                <input id="acai" type="number" placeholder="0" value="0">
+                <input id="acai" class="contador" type="number" placeholder="0" value="0">
                 <button onclick="somar('acai')" class="adicionar">+</button>
             </div>
 
@@ -38,23 +38,25 @@
     </div>
 
     <div class="container-pedido">
-        <div>
+        <div class="pedido">
             <h3>Pedido</h3>
         </div>
-
+        <div class="area-pedido">
         <p id="nomeCliente" class="nomecliente"></p>
+            <div class="form-pedido">
+                <form class="" action="{% url 'enviar_pedido' %}" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
 
-        <form class="" action="{% url 'enviar_pedido' %}" method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-
-            <div id="addItem" class="itens-pedido">
-
+                    <div id="addItem" class="itens-pedido">
+                    </div>
+                </form>
             </div>
-
+        </div>
+        <div class="area-botao">
             <div class="botao">
                 <button type="submit" class="btn">Finalizar pedido</button>
             </div>
-        </form>
+        </div>
     </div>
 
 {% endblock content %}
