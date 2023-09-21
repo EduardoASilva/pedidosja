@@ -197,16 +197,13 @@ div h3{
     align-items: center;
 }
 
-#comprador{
-    margin-top: -80px;
-}
 
 .itens{
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 5px;
 }
 
 #sobores{
