@@ -3,7 +3,7 @@ body{
     height: 100vh;
     margin: 0;
     background-color: rgb(41, 35, 35);
-    color: aliceblue;
+    color: #FFD204;
 }
 
 header{
@@ -130,11 +130,12 @@ div h3{
 .btn{
     width: 30%;
     height: 43px;
-    background-color: rgb(24, 134, 14);
+    background-color: #1AB7EA;
     border-radius: 5px;
     margin-left: 10px;
     cursor: pointer;
     margin-top:5px;
+    font-weight: bold;
 }
 
 .btn:hover{
@@ -228,7 +229,6 @@ div h3{
     height: 80%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
 }
 
@@ -295,49 +295,61 @@ footer h3{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border-radius: 10px;
-    color: aliceblue;
+    border-radius: 5px;
+    color: black;
     width: 90%;
-    height: 100px;
+    height: 150px;
     background-color: rgb(29, 27, 27);
 }
 
-.nome-pedido-comandas{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 50%;
-    margin-bottom: -15px;
-}
-
-.itens-comandas{
-    width: 100%;
-    height: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-    margin-top: -10px;
-}
-
-.comprador-comandas{
+.pedidos h3{
     width: 80%;
-    background-color: rgb(255, 255, 255);
-    border: none;
+    height: 20%;
+    font-size: x-large;
+    background: white;
+    border-radius: 5px;
+    margin: 5px 0 5px 0;
 }
 
-.quantidade{
-    width: 25%;
-    background-color: rgb(255, 255, 255);
-    border: none;
+.pedidos p{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    width: 20%;
+    height: 20%;
+    background: white;
+    border-radius: 5px;
+    margin:0;
 }
 
-.sabores{
-    width: 25%;
-    background-color: rgb(255, 255, 255);
-    border: none;
+.pedidos ul{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    list-style-type:none;
+    width: 20%;
+    height: 20%;
+    background: white;
+    border-radius: 5px;
+    margin-top:5px;
+    margin-bottom:0;
 }
+
+.btn-comandas{
+    width: 60%;
+    height: 31px;
+    background-color: #1AB7EA;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.btn-comandas:hover{
+    filter: brightness(1.3);
+}
+
+
 
 input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none;
