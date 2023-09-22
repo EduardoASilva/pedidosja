@@ -14,7 +14,7 @@
 
             {% for i in esfirras %}
                 <div class="sabor">
-                    <input name="{{ i.nome.lower }}" class="produtos" value="{{ i.nome.upper }}"/>
+                    <input class="sabor-produto" name="{{ i.nome.lower }}"  value="{{ i.nome.upper }}"/>
                     <button onclick="subtrair('{{ i.nome.lower }}')" class="subtrair">-</button>
                     <input class="contador" id="{{ i.nome.lower }}" name="{{ i.nome.lower }}" type="text" value="0">
                     <button onclick="somar('{{ i.nome.lower }}')" class="adicionar">+</button>
@@ -34,9 +34,10 @@
             {% csrf_token %}
 
             <input id="nomeCliente" name="nome" class="nomecliente" value="">
-            <div><div id="addItem" class="itens-pedido">
-            </div>
-            </div>
+
+
+                <div id="addItem" class="itens-pedido">
+                </div>
 
             <div class="area-botao botao">
                 <button type="submit" class="btn">Finalizar pedido</button>
