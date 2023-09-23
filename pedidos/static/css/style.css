@@ -75,7 +75,7 @@ div h3{
 }
 
 .nome input{
-    width: 80%;
+    width: 49%;
     height: 40px;
     border-radius: 5px;
     border: none;
@@ -186,8 +186,14 @@ div h3{
 .itens-pedido{
     width: 80%;
     display: flex;
+    flex-direction:column;
     justify-content: center;
     align-items: center;
+}
+
+.produto-pedidos{
+    display:flex;
+
 }
 
 .itens-pedido input{
