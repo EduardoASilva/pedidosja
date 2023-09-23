@@ -192,23 +192,26 @@ div h3{
 }
 
 .produto-pedidos{
-    display:flex;
-
+    display: flex;
+    width:90%;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
 }
 
 .itens-pedido input{
-    width: 10%;
+    width: 20%;
     height: 40px;
     border: none;
     text-align: center;
     font-size: large;
     margin-right:5px;
-    border-radius:0 5px 5px 0;
+    border-radius:5px;
     overflow: hidden;
 }
 
 .itens-pedido label{
-    width: 15%;
+    width: 30%;
     height: 42px;
     display: flex;
     justify-content: center;
@@ -216,8 +219,7 @@ div h3{
     background-color: white;
     color: black;
     font-size: large;
-    border-radius: 5px 0 0 5px;
-    margin-left:5px;
+    border-radius: 5px;
 }
 
 .nomecliente{
