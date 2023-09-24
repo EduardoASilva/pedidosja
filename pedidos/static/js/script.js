@@ -11,8 +11,10 @@ function adicionar(){
                 let forName = item.children[0].value
                 let valueProd = item.children[2].value
                 let html =
-                    `<label for="${forName}" class="" >${forName.toUpperCase()}</label>
-                    <input id="${forName}" name="${forName}" class="" value="${valueProd}">`
+                    `<div class="produto-pedidos">
+                        <label for="${forName}" class="" >${forName.toUpperCase()}</label>
+                        <input id="${forName}" name="${forName}" class="" value="${valueProd}">
+                    </div>`
 
                 let elementHtml = document.getElementById('addItem')
                 elementHtml.innerHTML += html

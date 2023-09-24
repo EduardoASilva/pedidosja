@@ -14,9 +14,9 @@
 
             {% for i in esfirras %}
                 <div class="sabor">
-                    <input name="{{ i.nome.lower }}" class="produtos" value="{{ i.nome.upper }}"/>
+                    <input class="sabor-produto" name="{{ i.nome.lower }}"  value="{{ i.nome.upper }}"/>
                     <button onclick="subtrair('{{ i.nome.lower }}')" class="subtrair">-</button>
-                    <input id="{{ i.nome.lower }}" name="{{ i.nome.lower }}" type="text" value="0">
+                    <input class="contador" id="{{ i.nome.lower }}" name="{{ i.nome.lower }}" type="text" value="0">
                     <button onclick="somar('{{ i.nome.lower }}')" class="adicionar">+</button>
                 </div>
             {% endfor %}
@@ -26,24 +26,25 @@
     </div>
 
     <div class="container-pedido">
-        <div class="pedido">
+        <div>
             <h3>Pedido</h3>
         </div>
-        <div class="area-pedido">
-            <form class="form-pedido" action="{% url 'enviar_pedido' %}" method="post" enctype="multipart/form-data">
-                {% csrf_token %}
+
+        <form class="form-pedido" action="{% url 'enviar_pedido' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
 
                 <input id="nomeCliente" name="nome" class="nomecliente" value="">
+
+
 
                 <div id="addItem" class="itens-pedido">
 
                 </div>
 
-                <div class="area-botao botao">
-                    <button type="submit" class="btn">Finalizar pedido</button>
-                </div>
-            </form>
-        </div>
+            <div class="area-botao botao">
+                <button type="submit" class="btn">Finalizar pedido</button>
+            </div>
+        </form>
     </div>
 
 {% endblock content %}

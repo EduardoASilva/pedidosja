@@ -91,4 +91,4 @@ def comandas(request):
     #         itens['']
     # data['nome'] = pedido.nome
     # return render(request, 'comandas.html')
-    pass
+    return render(request, 'comandas.html')

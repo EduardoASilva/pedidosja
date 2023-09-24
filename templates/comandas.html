@@ -3,15 +3,27 @@
 {% block content %}
 
     <div class="comandas">
-        <div class="secao-comandas">
-            <div class="pedidos">
-                <h3>{{ data.nome }}</h3>
-                <p>{{ data.data }}</p>
-                <ul>
-                    <li>{{ data.nome_produto }} - {{ data.qtd }}</li>
-                </ul>
-            </div>
+        <<div class="container-pedido">
+        <div class="">
+            <h3>Pedido</h3>
         </div>
+
+        <form class="form-pedido" action="{% url 'enviar_pedido' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+                <input id="nomeCliente" name="nome" class="nomecliente" value="">
+
+
+
+                <div id="addItem" class="itens-pedido">
+
+                </div>
+
+            <div class="area-botao botao">
+                <button type="submit" class="btn">Finalizar pedido</button>
+            </div>
+        </form>
+    </div>
     </div>
 
 {% endblock %}
