@@ -79,16 +79,17 @@ def enviar_pedido(request):
 
 
 def comandas(request):
-    # pedidos = Pedidos.objects.filter(finalizado=False)
-    # data = {}
-    # for p in pedidos:
-    #     itens = {}
-    #     itens['nome'] = p.nome_cliente
-    #     itens['data'] = p.created_at
-    #     itens['produtos'] = {}
-    #     prod = Quantidade.objects.filter(id_pedido_id=p.id)
-    #     for pr in prod:
-    #         itens['']
+    pedidos = Pedidos.objects.filter(finalizado=False)
+    data = []
+    for p in pedidos:
+        itens = {'nome': p.nome_cliente, 'data': p.created_at, 'produtos': {}}
+        prod = Quantidade.objects.filter(id_pedido_id=p.id)
+        for pr in prod:
+            produto = {f"{pr.id_esfirra.nome}": f"{pr.qtd}"}
+            itens['produtos'].update(produto)
+        data.append(itens)
+
+    print(data)
     # data['nome'] = pedido.nome
     # return render(request, 'comandas.html')
-    return render(request, 'comandas.html')
+    return render(request, 'comandas.html', {'data': data})
