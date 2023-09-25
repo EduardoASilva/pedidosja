@@ -13,18 +13,20 @@
                 <form class="form-pedido" action="{% url 'enviar_pedido' %}" method="post" enctype="multipart/form-data">
                     {% csrf_token %}
 
-                    <label for="" class="">Nome</label>
-                    <input id="nomeCliente" name="nome" class="nomecliente" value="{{ item.nome }}">
+                    <input type="hidden" name="id_pedido" value="{{ item.id }}">
 
-                    {% for k, v in item.produtos.items %}
-                        <div class="produto-pedidos">
+                    <label for="" class="">Nome</label>
+                    <input id="nomeCliente" name="nome" class="nomecliente" value="{{ item.nome }}" disabled>
+
+                    <div class="produto-pedidos{{ item.id }}">
+                        {% for k, v in item.produtos.items %}
                             <label for="{{ k }}" class="" >{{ k }}</label>
-                            <input id="" name="{{ k }}" class="" value="{{ v }}">
-                        </div>
-                    {% endfor %}
+                            <input id="" name="{{ k }}" class="" value="{{ v }}" disabled>
+                        {% endfor %}
+                    </div>
 
                     <div class="editar">
-                        <button type="button" class="btn">Editar</button>
+                        <button type="button" onclick="editar('{{ item.id }}')" class="btn">Editar</button>
                     </div>
                     <div class="area-botao botao">
                         <button type="submit" class="btn">Finalizar pedido</button>
