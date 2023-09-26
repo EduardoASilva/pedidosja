@@ -18,7 +18,7 @@
                         <label for="" class=""></label>
                         <input id="nomeCliente" name="nome" class="nomecliente-comandas" value="{{ item.nome }}" disabled>
 
-                        <div class="produto-pedidos-comanda{{ item.id }}">
+                        <div class="produto-pedidos{{ item.id }}">
                             {% for k, v in item.produtos.items %}
                                 <label for="{{ k }}" class="comanda-sabor" >{{ k }}</label>
                                 <input id="" name="{{ k }}" class="comanda-qtd" value="{{ v }}" disabled>
