@@ -3,35 +3,37 @@
 {% block content %}
 
     {% for item in data %}
+        <div class="container-comandas">
+            <div class="comandas">
+                <div class="container-pedido">
+                    <div class="">
+                        <h3>Pedido</h3>
+                    </div>
 
-        <div class="comandas">
-            <div class="container-pedido">
-                <div class="">
-                    <h3>Pedido</h3>
+                    <form class="form-pedido" action="{% url 'enviar_pedido' %}" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+
+                        <input type="hidden" name="id_pedido" value="{{ item.id }}">
+
+                        <label for="" class=""></label>
+                        <input id="nomeCliente" name="nome" class="nomecliente-comandas" value="{{ item.nome }}" disabled>
+
+                        <div class="produto-pedidos-comanda{{ item.id }}">
+                            {% for k, v in item.produtos.items %}
+                                <label for="{{ k }}" class="comanda-sabor" >{{ k }}</label>
+                                <input id="" name="{{ k }}" class="comanda-qtd" value="{{ v }}" disabled>
+                            {% endfor %}
+                        </div>
+                        <div class="botao-comanda">
+                            <div class="editar">
+                                <button type="button" onclick="editar('{{ item.id }}')" class="btn-comandas">Editar</button>
+                            </div>
+                            <div class="area-botao botao-finalizar">
+                                <button type="submit" class="btn-comandas">Finalizar pedido</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
-
-                <form class="form-pedido" action="{% url 'enviar_pedido' %}" method="post" enctype="multipart/form-data">
-                    {% csrf_token %}
-
-                    <input type="hidden" name="id_pedido" value="{{ item.id }}">
-
-                    <label for="" class="">Nome</label>
-                    <input id="nomeCliente" name="nome" class="nomecliente" value="{{ item.nome }}" disabled>
-
-                    <div class="produto-pedidos{{ item.id }}">
-                        {% for k, v in item.produtos.items %}
-                            <label for="{{ k }}" class="" >{{ k }}</label>
-                            <input id="" name="{{ k }}" class="" value="{{ v }}" disabled>
-                        {% endfor %}
-                    </div>
-
-                    <div class="editar">
-                        <button type="button" onclick="editar('{{ item.id }}')" class="btn">Editar</button>
-                    </div>
-                    <div class="area-botao botao">
-                        <button type="submit" class="btn">Finalizar pedido</button>
-                    </div>
-                </form>
             </div>
         </div>
     {% endfor %}
