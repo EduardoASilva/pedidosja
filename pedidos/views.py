@@ -54,41 +54,51 @@ def logout(request):
 
 def enviar_pedido(request):
     if request.method == 'POST':
-        try:
-            pedido = Pedidos.objects.create(
-                nome_cliente=request.POST.get('nome'),
-                id_user_id=request.user.id
-            )
-        except Exception as e:
-            messages.error(request, f'Erro: {e.args}')
-            return render(request, 'admpage.html')
+        if request.POST.get('id_pedido'):
+            pedido = Pedidos.objects.filter(pk=request.POST.get('id_pedido')).last()
+            qtd = Quantidade.objects.filter(id_pedido_id=pedido.id)
+            for key, value in request.POST.items():
+                if key != 'csrfmiddlewaretoken' and key != 'nome' and key != 'id_pedido':
+                    # id_esfirra = Esfirras.objects.filter(nome__contains=key.lower()).last().id
+                    for q in qtd:
+                        if q.id_esfirra.nome == key:
+                            q.qtd = int(value)
+                            q.save()
+            return redirect('comandas')
+        else:
+            try:
+                pedido = Pedidos.objects.create(
+                    nome_cliente=request.POST.get('nome'),
+                    id_user_id=request.user.id
+                )
+            except Exception as e:
+                messages.error(request, f'Erro: {e.args}')
+                return render(request, 'admpage.html')
 
-        data = {}
-        for key, value in request.POST.items():
-            if key != 'csrfmiddlewaretoken' and key != 'nome':
-                id_esfirra = Esfirras.objects.filter(nome__contains=key.lower()).last().id
-                data['id_pedido_id'] = pedido.id
-                data['id_esfirra_id'] = id_esfirra
-                data['qtd'] = value
+            data = {}
+            for key, value in request.POST.items():
+                if key != 'csrfmiddlewaretoken' and key != 'nome':
+                    id_esfirra = Esfirras.objects.filter(nome__contains=key.lower()).last().id
+                    data['id_pedido_id'] = pedido.id
+                    data['id_esfirra_id'] = id_esfirra
+                    data['qtd'] = value
 
-                Quantidade.objects.create(**data)
+                    Quantidade.objects.create(**data)
 
-        messages.success(request, 'Pedido criado com sucesso!')
-        esfirras = Esfirras.objects.filter(ativo=True)
-        return redirect('index')
+            messages.success(request, 'Pedido criado com sucesso!')
+            esfirras = Esfirras.objects.filter(ativo=True)
+            return redirect('index')
 
 
 def comandas(request):
-    # pedidos = Pedidos.objects.filter(finalizado=False)
-    # data = {}
-    # for p in pedidos:
-    #     itens = {}
-    #     itens['nome'] = p.nome_cliente
-    #     itens['data'] = p.created_at
-    #     itens['produtos'] = {}
-    #     prod = Quantidade.objects.filter(id_pedido_id=p.id)
-    #     for pr in prod:
-    #         itens['']
-    # data['nome'] = pedido.nome
-    # return render(request, 'comandas.html')
-    return render(request, 'comandas.html')
+    pedidos = Pedidos.objects.filter(finalizado=False)
+    data = []
+    for p in pedidos:
+        itens = {'id': p.id, 'nome': p.nome_cliente, 'data': p.created_at, 'produtos': {}}
+        prod = Quantidade.objects.filter(id_pedido_id=p.id)
+        for pr in prod:
+            produto = {f"{pr.id_esfirra.nome}": f"{pr.qtd}"}
+            itens['produtos'].update(produto)
+        data.append(itens)
+
+    return render(request, 'comandas.html', {'data': data})

@@ -38,3 +38,13 @@ function subtrair(opcao) {
         valueInput.value = valueReal - 1
     }
 }
+
+function editar(id_pedido){
+    let input = document.querySelectorAll(`.produto-pedidos${id_pedido}`)[0].children
+
+    for (item of input){
+        if (item.localName === 'input'){
+            item.removeAttribute('disabled')
+        }
+    }
+}
