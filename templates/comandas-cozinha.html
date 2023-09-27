@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container-cozinha">
+    {% for item in data %}
+            <div class="cozinha">
+                <div class="container-pedido-cozinha">
+                    <div class="titulo-comanda">
+                        <h3 class="titulo-pedido-comanda">Pedido</h3>
+                    </div>
+
+                    <form class="form-pedido-comanda" action="{% url 'enviar_pedido' %}" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+
+                        <input type="hidden" name="id_pedido" value="{{ item.id }}">
+
+                        <label for="" class=""></label>
+                        <input id="nomeCliente" name="nome" class="nomecliente-comandas" value="{{ item.nome }}" disabled>
+
+                        <div id="produto-qtd" class="produto-pedidos{{ item.id }}">
+                            {% for k, v in item.produtos.items %}
+                                <label for="{{ k }}" class="comanda-sabor" >{{ k }}</label>
+                                <input id="" name="{{ k }}" class="comanda-qtd" value="{{ v }}" disabled>
+                            {% endfor %}
+                        </div>
+                        <div class="botao-comanda">
+
+                            <div class="area-botao botao-finalizar">
+                                <button type="submit" class="btn-comandas">Finalizar pedido</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+    {% endfor %}
+</div>
+
+{% endblock %}

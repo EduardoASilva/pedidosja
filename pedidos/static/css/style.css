@@ -298,6 +298,7 @@ footer h3{
 }
 
 /*inicio comandas*/
+
 .container-comandas{
     width: 100%;
     height: 100%;
@@ -422,6 +423,106 @@ footer h3{
 
 .btn-comandas:hover{
     filter: brightness(1.3);
+}
+
+/*inicio comandas-cozinha*/
+
+.container-cozinha{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    justify-items: center;
+}
+
+.container-pedido-cozinha{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.678);
+    border-radius: 10px;
+}
+.cozinha{
+    width: 25em;
+    height: 11em;
+    display: flex;
+    text-align: center;
+    padding: 10px;
+    gap: 10px;
+}
+
+.form-pedido-comanda{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.comanda-sabor{
+    background-color: white;
+    color: black;
+    width: 15%;
+    border-radius: 5px 0 0 5px;
+    height: 31px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 5px;
+}
+
+.comanda-qtd{
+    background-color: white;
+    border-radius: 0 5px 5px 0;
+    height: 29px;
+    width: 5%;
+    text-align: center;
+    margin-right:5px;
+    border:none;
+}
+
+.titulo-comanda{
+    width: 100%;
+    height: 20%;
+    font-size: xx-large;
+    margin:0;
+}
+
+.titulo-pedido-comanda{
+    font-size: x-large;
+    margin-top: 20px;
+}
+
+.nomecliente-comandas{
+    width: 91%;
+    height: 25px;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    font-size: large;
+    margin-bottom: -5px;
+    background-color:white;
+}
+
+#produto-qtd{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50%;
+}
+
+.botao-comanda{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 10%;
 }
 
 
