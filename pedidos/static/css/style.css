@@ -6,6 +6,21 @@ body{
     color: #FFD204;
 }
 
+
+::-webkit-scrollbar {
+    width: 5px;               /* width of the entire scrollbar */
+  }
+
+::-webkit-scrollbar-track {
+    background: transparent;        /* color of the tracking area */
+  }
+
+::-webkit-scrollbar-thumb {
+    background-color: #302f2fbb;    /* color of the scroll thumb */
+    border-radius: 20px;       /* roundness of the scroll thumb */
+    border: 0px solid orange;  /* creates padding around scroll thumb */
+  }
+
 header{
     display: flex;
     justify-content: center;
@@ -286,7 +301,10 @@ footer h3{
 .container-comandas{
     width: 100%;
     height: 100%;
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    justify-items: center;
 }
 
 .container-pedido-comanda{
