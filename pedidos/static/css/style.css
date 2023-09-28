@@ -336,8 +336,8 @@ footer h3{
 }
 
 .comanda-sabor{
-    background-color: white;
-    color: black;
+    background-color: #1e1c1c;
+    color: white;
     width: 15%;
     border-radius: 5px 0 0 5px;
     height: 31px;
@@ -348,13 +348,14 @@ footer h3{
 }
 
 .comanda-qtd{
-    background-color: white;
+    background-color: #1e1c1c;
     border-radius: 0 5px 5px 0;
     height: 29px;
     width: 5%;
     text-align: center;
-    margin-right:5px;
-    border:none;
+    margin-right: 5px;
+    border: none;
+    color: white;
 }
 
 .titulo-comanda{
@@ -370,14 +371,15 @@ footer h3{
 }
 
 .nomecliente-comandas{
-    width: 91%;
+width: 91%;
     height: 25px;
     border: none;
     border-radius: 5px;
     text-align: center;
     font-size: large;
     margin-bottom: -5px;
-    background-color:white;
+    background-color: #1e1c1c;
+    color: white;
 }
 
 #produto-qtd{
