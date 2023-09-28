@@ -37,12 +37,36 @@ function subtrair(opcao) {
     }
 }
 
-function editar(id_pedido){
-    let input = document.querySelectorAll(`.produto-pedidos${id_pedido}`)[0].children
+function editar(id_pedido, acao){
+    if (acao === 'editar'){
+        let input = document.querySelectorAll(`.produto-pedidos${id_pedido}`)[0].children
 
-    for (item of input){
-        if (item.localName === 'input'){
-            item.removeAttribute('disabled')
+        for (item of input){
+            if (item.localName === 'input'){
+                item.removeAttribute('disabled')
+            }
         }
+        let buttonEditar = document.getElementById('buttonEditar')
+        buttonEditar.style.display = `none`;
+        let buttonSalvar = document.getElementById('buttonSalvar')
+        buttonSalvar.style.display = 'block'
+    }else if (acao === 'salvar'){
+        let produto-qtd = document.getElementById('produto-qtd')
+
+        let minhaUrl = window.location.protocol + window.location.host
+
+        fetch(minhaUrl)
+            .then(function (response) {
+                return response.json()
+            })
+        $.get( json)
+            .done(function (data) {
+                if (!data.error){
+                    alertSuccess(data.msg);
+                }else {
+                    alertWarning(data.msg);
+                }
+            });
     }
+
 }

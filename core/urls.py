@@ -25,4 +25,5 @@ urlpatterns = [
     path('logout/', views.logout, name='logout'),
     path('enviar_pedidos/', views.enviar_pedido, name='enviar_pedido'),
     path('comandas/', views.comandas, name='comandas'),
+    path('finalizar_pedido/<int:id_pedido>', views.finalizar_pedido, name='finalizar_pedido'),
 ]

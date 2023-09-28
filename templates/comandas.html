@@ -1,31 +1,38 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="container-comandas">
-    {% for item in data %}
+    <div class="container-comandas">
+        {% for item in data %}
             <div class="comandas">
                 <div class="container-pedido-comanda">
                     <div class="titulo-comanda">
                         <h3 class="titulo-pedido-comanda">Pedido</h3>
                     </div>
 
-                    <form class="form-pedido-comanda" action="{% url 'enviar_pedido' %}" method="post" enctype="multipart/form-data">
+                    <form id="formComandas" class="form-pedido-comanda" action="{% url 'finalizar_pedido' item.id %}" method="post"
+                          enctype="multipart/form-data" onsubmit="return finalizaPedido()">
                         {% csrf_token %}
 
                         <input type="hidden" name="id_pedido" value="{{ item.id }}">
 
                         <label for="" class=""></label>
-                        <input id="nomeCliente" name="nome" class="nomecliente-comandas" value="{{ item.nome }}" disabled>
+                        <input id="nomeCliente" name="nome" class="nomecliente-comandas" value="{{ item.nome }}"
+                               disabled>
 
                         <div id="produto-qtd" class="produto-pedidos{{ item.id }}">
                             {% for k, v in item.produtos.items %}
-                                <label for="{{ k }}" class="comanda-sabor" >{{ k }}</label>
+                                <label for="{{ k }}" class="comanda-sabor">{{ k }}</label>
                                 <input id="" name="{{ k }}" class="comanda-qtd" value="{{ v }}" disabled>
                             {% endfor %}
                         </div>
                         <div class="botao-comanda">
-                            <div class="editar">
-                                <button type="button" onclick="editar('{{ item.id }}')" class="btn-comandas">Editar</button>
+                            <div id="buttonEditar" class="editar" style="display: block">
+                                <button type="button" onclick="editar('{{ item.id }}', 'editar')" class="btn-comandas">Editar
+                                </button>
+                            </div>
+                            <div id="buttonSalvar" class="editar" style="display: none">
+                                <button type="button" onclick="editar('{{ item.id }}', 'salvar')" class="btn-comandas">Salvar Edição
+                                </button>
                             </div>
                             <div class="area-botao botao-finalizar">
                                 <button type="submit" class="btn-comandas">Finalizar pedido</button>
@@ -35,7 +42,34 @@
                 </div>
             </div>
 
-    {% endfor %}
-</div>
+        {% endfor %}
+    </div>
 
 {% endblock %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+    <script>
+        function finalizaPedido() {
+            let nome = document.getElementById('nomeCliente').value
+            Swal.fire({
+                title: `Pedido de ${nome}!`,
+                text: "Tem certeza que deseja finalizar esse pedido?",
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                cancelButtonText: 'Cancelar',
+                confirmButtonText: 'Sim, Finalizar Pedido!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire(
+                        'Pedido Finalizado!',
+                        `Pedido de ${nome} foi finalizado com sucesso!`,
+                        'success'
+                    )
+                }
+            })
+        }
+    </script>
+{% endblock javascripts %}

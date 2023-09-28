@@ -102,3 +102,13 @@ def comandas(request):
         data.append(itens)
 
     return render(request, 'comandas.html', {'data': data})
+
+
+def finalizar_pedido(request, id_pedido):
+    if request.method == 'POST':
+        pedido = Pedidos.objects.filter(pk=id_pedido).get()
+        pedido.finalizado = True
+        pedido.save()
+        return redirect('comandas')
+    else:
+        return redirect('index')
