@@ -424,6 +424,15 @@ footer h3{
     filter: brightness(1.3);
 }
 
+@media (min-width: 1080px) {
+.container-comandas{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    justify-items: center;
+}
+}
+
 @media (max-width: 768px) {
 .container-comandas{
     display: grid;
