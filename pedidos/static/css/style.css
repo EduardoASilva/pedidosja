@@ -306,6 +306,7 @@ footer h3{
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto;
     justify-items: center;
+    overflow:auto;
 }
 
 .container-pedido-comanda{
