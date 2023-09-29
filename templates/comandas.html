@@ -9,8 +9,8 @@
                         <h3 class="titulo-pedido-comanda">Pedido</h3>
                     </div>
 
-                    <form id="formComandas" class="form-pedido-comanda" action="{% url 'finalizar_pedido' item.id %}" method="post"
-                          enctype="multipart/form-data" onsubmit="return finalizaPedido()">
+                    <form id="formComandas" class="form-pedido-comanda" action="{% url 'enviar_pedido' %}" method="post"
+                          enctype="multipart/form-data">
                         {% csrf_token %}
 
                         <input type="hidden" name="id_pedido" value="{{ item.id }}">
@@ -19,7 +19,7 @@
                         <input id="nomeCliente" name="nome" class="nomecliente-comandas" value="{{ item.nome }}"
                                disabled>
 
-                        <div id="produto-qtd" class="produto-pedidos{{ item.id }}">
+                        <div id="produtoQtd" class="produto-pedidos{{ item.id }}">
                             {% for k, v in item.produtos.items %}
                                 <label for="{{ k }}" class="comanda-sabor">{{ k }}</label>
                                 <input id="" name="{{ k }}" class="comanda-qtd" value="{{ v }}" disabled>
@@ -27,15 +27,20 @@
                         </div>
                         <div class="botao-comanda">
                             <div id="buttonEditar" class="editar" style="display: block">
-                                <button type="button" onclick="editar('{{ item.id }}', 'editar')" class="btn-comandas">Editar
+                                <button type="button" onclick="editar('{{ item.id }}', 'editar')" class="btn-comandas">
+                                    Editar
                                 </button>
                             </div>
                             <div id="buttonSalvar" class="editar" style="display: none">
-                                <button type="button" onclick="editar('{{ item.id }}', 'salvar')" class="btn-comandas">Salvar Edição
+                                <button type="submit" class="btn-comandas">
+                                    Salvar Edição
                                 </button>
                             </div>
                             <div class="area-botao botao-finalizar">
-                                <button type="submit" class="btn-comandas">Finalizar pedido</button>
+                                <button type="button" class="btn-comandas"
+                                        onclick="finalizaPedido(`{% url 'finalizar_pedido' item.id %}`)">
+                                    Finalizar pedido
+                                </button>
                             </div>
                         </div>
                     </form>
@@ -50,7 +55,7 @@
 <!-- Specific Page JS goes HERE  -->
 {% block javascripts %}
     <script>
-        function finalizaPedido() {
+        function finalizaPedido(url) {
             let nome = document.getElementById('nomeCliente').value
             Swal.fire({
                 title: `Pedido de ${nome}!`,
@@ -60,16 +65,31 @@
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
                 cancelButtonText: 'Cancelar',
-                confirmButtonText: 'Sim, Finalizar Pedido!'
+                confirmButtonText: 'Sim, Finalizar Pedido!',
+
             }).then((result) => {
                 if (result.isConfirmed) {
+                    fetch(url).then(function (response) {
+                        console.log(response);
+                    }).then(function (data) {
+                        console.log(data);
+                    }).catch(function () {
+                        console.log("Houve algum problema!");
+                    });
                     Swal.fire(
                         'Pedido Finalizado!',
                         `Pedido de ${nome} foi finalizado com sucesso!`,
                         'success'
                     )
+                } else if (result.isDenied) {
+                    Swal.fire(
+                        'Erro!',
+                        `Erro no servidor!`,
+                        'error'
+                    )
                 }
             })
         }
+
     </script>
 {% endblock javascripts %}

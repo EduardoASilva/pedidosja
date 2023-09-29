@@ -2,7 +2,7 @@ from django.contrib import auth, messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 
 from pedidos.models import Pedidos, Esfirras, Quantidade
 
@@ -105,10 +105,11 @@ def comandas(request):
 
 
 def finalizar_pedido(request, id_pedido):
-    if request.method == 'POST':
-        pedido = Pedidos.objects.filter(pk=id_pedido).get()
-        pedido.finalizado = True
-        pedido.save()
-        return redirect('comandas')
-    else:
-        return redirect('index')
+    # if request.method == 'POST':
+    #     pedido = Pedidos.objects.filter(pk=id_pedido).get()
+    #     pedido.finalizado = True
+    #     pedido.save()
+    #     return redirect('comandas')
+    # else:
+    #     return redirect('index')
+    return JsonResponse({'id_pedido': id_pedido})

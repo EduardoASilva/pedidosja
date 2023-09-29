@@ -51,7 +51,7 @@ function editar(id_pedido, acao){
         let buttonSalvar = document.getElementById('buttonSalvar')
         buttonSalvar.style.display = 'block'
     }else if (acao === 'salvar'){
-        let produto-qtd = document.getElementById('produto-qtd')
+        let produtoQtd = document.getElementById('produtoQtd')
 
         let minhaUrl = window.location.protocol + window.location.host
 

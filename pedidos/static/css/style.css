@@ -140,7 +140,6 @@ div h3{
     cursor: pointer;
 }
 
-
 .btn{
     width: 30%;
     height: 43px;
@@ -257,7 +256,7 @@ div h3{
     width:100%;
     height:10%;
     background: blue;
-}
+    }
 
 .nome-pedido{
     width: 100%;
@@ -314,6 +313,7 @@ footer h3{
     background-color: rgba(0, 0, 0, 0.678);
     border-radius: 10px;
 }
+
 .comandas{
     display: flex;
     text-align: center;
@@ -343,7 +343,7 @@ footer h3{
 }
 
 .comanda-qtd{
-    background-color: #1e1c1c;
+    background-color:#393636;
     border-radius: 0 5px 5px 0;
     height: 29px;
     width: 5%;
@@ -351,6 +351,10 @@ footer h3{
     margin-right: 5px;
     border: none;
     color: white;
+}
+
+input:disabled {
+  background:#1e1c1c;
 }
 
 .titulo-comanda{
@@ -377,7 +381,7 @@ footer h3{
     color: white;
 }
 
-#produto-qtd{
+#produtoQtd{
     display: flex;
     justify-content: center;
     align-items: center;
