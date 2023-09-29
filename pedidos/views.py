@@ -105,11 +105,20 @@ def comandas(request):
 
 
 def finalizar_pedido(request, id_pedido):
-    # if request.method == 'POST':
-    #     pedido = Pedidos.objects.filter(pk=id_pedido).get()
-    #     pedido.finalizado = True
-    #     pedido.save()
-    #     return redirect('comandas')
-    # else:
-    #     return redirect('index')
-    return JsonResponse({'id_pedido': id_pedido})
+    if request.method == 'GET':
+        try:
+            pedido = Pedidos.objects.filter(pk=id_pedido).get()
+            pedido.finalizado = True
+            pedido.save()
+            data = {
+                'success': True,
+                'nome': pedido.nome_cliente
+            }
+            return JsonResponse(data)
+        except Exception as e:
+            data = {
+                'success': False,
+                'msg': f'Erro ao finalizar pedido "{e.args}"!'
+            }
+            return JsonResponse(data)
+

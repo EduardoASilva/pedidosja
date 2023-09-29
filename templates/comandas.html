@@ -66,27 +66,36 @@
                 cancelButtonColor: '#d33',
                 cancelButtonText: 'Cancelar',
                 confirmButtonText: 'Sim, Finalizar Pedido!',
-
             }).then((result) => {
                 if (result.isConfirmed) {
-                    fetch(url).then(function (response) {
-                        console.log(response);
-                    }).then(function (data) {
-                        console.log(data);
-                    }).catch(function () {
-                        console.log("Houve algum problema!");
-                    });
-                    Swal.fire(
-                        'Pedido Finalizado!',
-                        `Pedido de ${nome} foi finalizado com sucesso!`,
-                        'success'
-                    )
-                } else if (result.isDenied) {
-                    Swal.fire(
-                        'Erro!',
-                        `Erro no servidor!`,
-                        'error'
-                    )
+                    fetch(url)
+                        .then(response => response.json())
+
+                        .then(data => {
+                            if (data.success){
+                                Swal.fire(
+                                    'Pedido Finalizado!',
+                                    `Pedido de ${data.nome} foi finalizado com sucesso!`,
+                                    'success'
+                                ).then(function() {
+                                    location.reload();
+                                })
+                                {#setInterval('window.location.reload()', 2000);#}
+                            }else{
+                                Swal.fire(
+                                    'Atenção!',
+                                    `${data.msg}`,
+                                    'warning'
+                                )
+                            }
+
+                        }).catch(error => {
+                            Swal.fire(
+                                'Erro!',
+                                `Erro no servidor "${error}"!`,
+                                'error'
+                            )
+                    })
                 }
             })
         }
