@@ -16,7 +16,7 @@
                         <input type="hidden" name="id_pedido" value="{{ item.id }}">
 
                         <label for="" class=""></label>
-                        <input id="nomeCliente" name="nome" class="nomecliente-comandas" value="{{ item.nome }}"
+                        <input id="nomeCliente{{ item.id }}" name="nome" class="nomecliente-comandas" value="{{ item.nome }}"
                                disabled>
 
                         <div id="produtoQtd" class="produto-pedidos{{ item.id }}">
@@ -26,19 +26,19 @@
                             {% endfor %}
                         </div>
                         <div class="botao-comanda">
-                            <div id="buttonEditar" class="editar" style="display: block">
-                                <button type="button" onclick="editar('{{ item.id }}', 'editar')" class="btn-comandas">
+                            <div id="buttonEditar{{ item.id }}" class="editar" style="display: block">
+                                <button type="button" onclick="editar('{{ item.id }}')" class="btn-comandas">
                                     Editar
                                 </button>
                             </div>
-                            <div id="buttonSalvar" class="editar" style="display: none">
+                            <div id="buttonSalvar{{ item.id }}" class="editar" style="display: none">
                                 <button type="submit" class="btn-comandas">
                                     Salvar Edição
                                 </button>
                             </div>
                             <div class="area-botao botao-finalizar">
                                 <button type="button" class="btn-comandas"
-                                        onclick="finalizaPedido(`{% url 'finalizar_pedido' item.id %}`)">
+                                        onclick="finalizaPedido(`{% url 'finalizar_pedido' item.id %}`, {{ item.id }})">
                                     Finalizar pedido
                                 </button>
                             </div>
@@ -55,8 +55,8 @@
 <!-- Specific Page JS goes HERE  -->
 {% block javascripts %}
     <script>
-        function finalizaPedido(url) {
-            let nome = document.getElementById('nomeCliente').value
+        function finalizaPedido(url, id_pedido) {
+            let nome = document.getElementById(`nomeCliente${id_pedido}`).value
             Swal.fire({
                 title: `Pedido de ${nome}!`,
                 text: "Tem certeza que deseja finalizar esse pedido?",
@@ -80,7 +80,6 @@
                                 ).then(function() {
                                     location.reload();
                                 })
-                                {#setInterval('window.location.reload()', 2000);#}
                             }else{
                                 Swal.fire(
                                     'Atenção!',
