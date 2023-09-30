@@ -298,7 +298,7 @@ footer h3{
     height: 100%;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 190px;
+    grid-auto-rows: max-content;
     justify-items: center;
     overflow: auto;
 }
@@ -315,8 +315,8 @@ footer h3{
 }
 
 .comandas{
-    width: 320px;
-    height: 180px;
+    width: 95%;
+    height: 95%;
     display: flex;
     text-align: center;
     padding: 10px;
@@ -431,8 +431,6 @@ input:disabled {
     .container-comandas{
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: auto;
-        justify-items: center;
     }
 }
 
