@@ -1,5 +1,14 @@
 {% load static %}
 
 <header>
-    <img src="{% static 'img/logo_JA-Oficial.png' %}" alt="">
+    <nav style="display: flex">
+        <a href="/" >
+            <img src="{% static 'img/logo_JA-Oficial.png' %}" alt="">
+        </a>
+        {% if request.user.is_superuser %}
+            <a href="{% url 'comandas' %}" style="margin-right: 10px; color: #FFF; text-decoration: none; font-size: 20px">
+                <p>Comandas</p>
+            </a>
+        {% endif %}
+    </nav>
 </header>
