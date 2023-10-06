@@ -1,14 +1,21 @@
 {% load static %}
 
 <header>
-    <nav style="display: flex">
-        <a href="/" >
-            <img src="{% static 'img/logo_JA-Oficial.png' %}" alt="">
-        </a>
-        {% if request.user.is_superuser %}
-            <a href="{% url 'comandas' %}" style="margin-right: 10px; color: #FFF; text-decoration: none; font-size: 20px">
-                <p>Comandas</p>
+    <nav style="width:100%; display: flex; align-items: center; justify-content: center;">
+        <div style="width:33%;"></div>
+        <div style="display:flex; width:33%; align-items: center; justify-content: center;">
+            <a href="/" >
+                <img src="{% static 'img/logo_JA-Oficial.png' %}" alt="">
             </a>
+        </div>
+        {% if request.user.is_superuser %}
+        <div style="display:flex;  width:33%; align-items: center; justify-content: flex-end;">
+            <button class="btn-nav">
+                <a href="{% url 'comandas' %}" style=" color: #FFF; text-decoration: none; font-size: 19px;">
+                    <p style="margin:10px;">Comandas</p>
+                </a>
+            </button>
+        </div>
         {% endif %}
     </nav>
 </header>

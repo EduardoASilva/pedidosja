@@ -335,13 +335,13 @@ footer h3{
 .comanda-sabor{
     background-color: #1e1c1c;
     color: white;
-    width: 15%;
+    width: 23%;
     border-radius: 5px 0 0 5px;
     height: 31px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: 5px;
+    margin-left: 2px;
 }
 
 .comanda-qtd{
@@ -444,5 +444,20 @@ input:disabled {
 input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
+}
+
+.btn-nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    width: 25%;
+    border-radius: 15px;
+    border:none;
+}
+
+.btn-nav:hover{
+  filter: brightness(1.5);
+  box-shadow:1px 2px 2px 2px #ffffff4f;
 }
 
