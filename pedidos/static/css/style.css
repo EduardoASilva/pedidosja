@@ -335,13 +335,13 @@ footer h3{
 .comanda-sabor{
     background-color: #1e1c1c;
     color: white;
-    width: 15%;
+    width: 23%;
     border-radius: 5px 0 0 5px;
     height: 31px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: 5px;
+    margin-left: 2px;
 }
 
 .comanda-qtd{
