@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div class="container-comandas">
+    <div id="refresh" class="container-comandas">
         {% for item in data %}
             <div class="comandas">
                 <div class="container-pedido-comanda">
@@ -98,6 +98,6 @@
                 }
             })
         }
-
+      
     </script>
 {% endblock javascripts %}
