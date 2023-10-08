@@ -1,0 +1,27 @@
+{% load static %}
+
+<header>
+    <nav class="nav-adm">
+        <div class="vazia"></div>
+        <div class="logo-nav">
+            <a href="/" >
+                <img src="{% static 'img/logo_JA-Oficial.png' %}" alt="">
+            </a>
+        </div>
+        {% if request.user.is_superuser %}
+        <div class="div-btn" style="display:flex;  width:33%; align-items: center; justify-content: flex-end;">
+            <button class="btn-nav">
+                <a href="{% url 'comandas' %}" style=" color: #FFF; text-decoration: none; font-size: 19px;">
+                    <p style="margin:10px;">Comandas</p>
+                </a>
+            </button>
+
+            <button class="btn-nav">
+                <a href="{% url 'relatorio' %}" style=" color: #FFF; text-decoration: none; font-size: 19px;">
+                    <p style="margin:10px;">Relatório</p>
+                </a>
+            </button>
+        </div>
+        {% endif %}
+    </nav>
+</header>
