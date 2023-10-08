@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+        <div>
+            <h3 class="titulo-pedido-comanda">Relatório de Vendas</h3><br>
+            <h5>Total de Pedidos: {{ pedidos }}</h5>
+            <h5>Total de Esfirras de Carne: {{ carne }}</h5>
+            <h5>Total de Esfirras de Queijo: {{ queijo }}</h5>
+            <h5>Total de Esfirras de Morango: {{ morango }}</h5>
+            <h5>Total de Esfirras vezes 5,00: {{ valor_total }}</h5>
+        </div>
+{% endblock content %}
