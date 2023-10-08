@@ -140,7 +140,7 @@ def relatorio(request):
             elif i.id_esfirra.nome == 'Morango':
                 morango += i.qtd
 
-    valor_total = carne + queijo + morango * 5
+    valor_total = (carne + queijo + morango) * 5
     valor_total = f'R${valor_total:_.2f}'
     valor_total = valor_total.replace('.', ',').replace('_', '.')
     print(f'O lucro foi de {valor_total}')
