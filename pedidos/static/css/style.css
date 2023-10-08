@@ -527,13 +527,5 @@ input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-
 
 }
 
-.rel{
-    display: block;
-    text-align: center;
-    background-color: rgba(0, 0, 0, 0.678);
-    border-radius: 5px;
-    height: 70%;
-    width: 50%;
-}
 
 
