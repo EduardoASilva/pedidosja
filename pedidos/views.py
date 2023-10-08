@@ -122,3 +122,35 @@ def finalizar_pedido(request, id_pedido):
             }
             return JsonResponse(data)
 
+
+def relatorio(request):
+    pedido = Pedidos.objects.filter(finalizado=True)
+
+    carne = 0
+    queijo = 0
+    morango = 0
+
+    for p in pedido:
+        itens = Quantidade.objects.filter(id_pedido_id=p.id)
+        for i in itens:
+            if i.id_esfirra.nome == 'Carne':
+                carne += i.qtd
+            elif i.id_esfirra.nome == 'Queijo':
+                queijo += i.qtd
+            elif i.id_esfirra.nome == 'Morango':
+                morango += i.qtd
+
+    valor_total = carne + queijo + morango * 5
+    valor_total = f'R${valor_total:_.2f}'
+    valor_total = valor_total.replace('.', ',').replace('_', '.')
+    print(f'O lucro foi de {valor_total}')
+
+    context = {
+        'carne': carne,
+        'queijo': queijo,
+        'morango': morango,
+        'pedidos': pedido.count(),
+        'valor_total': valor_total
+    }
+
+    return render(request, 'relatorio.html', context)
